@@ -8,13 +8,18 @@ curl "${API}${URL_PATH}" \
   # --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
   --data '{
-    "student": {
-      "first_name": "'"${FIRST_NAME}"'",
-      "last_name": "'"${LAST_NAME}"'",
-      "born_on": "'"${BORN_ON}"'",
-      "school": "'"${SCHOOL}"'",
-      "teacher": "'"${TEACHER}"'",
-      "grade": "'"${GRADE}"'"
+    "observation": {
+      "obs_num": "'"${OBS_NUM}"'",
+      "obs_on": "'"${OBS_ON}"'",
+      "obs_setting": "'"${OBS_SETTING}"'",
+      "obs_task": "'"${OBS_TASK}"'",
+      "obs_time": "'"${OBS_TIME}"'",
+      "aet": "'"${AET}"'"
+      "pet": "'"${PET}"'"
+      "oft_m": "'"${OFT_M}"'"
+      "oft_v": "'"${OFT_V}"'"
+      "oft_p": "'"${OFT_P}"'"
+      "obs_comment": "'"${OBS_COMMENT}"'"
     }
   }'
 

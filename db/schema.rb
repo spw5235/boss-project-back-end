@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217210646) do
+ActiveRecord::Schema.define(version: 20170218023836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,22 @@ ActiveRecord::Schema.define(version: 20170217210646) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_examples_on_user_id", using: :btree
+  end
+
+  create_table "observations", force: :cascade do |t|
+    t.integer  "obs_num"
+    t.date     "obs_on"
+    t.string   "obs_setting"
+    t.string   "obs_task"
+    t.integer  "obs_time"
+    t.integer  "aet"
+    t.integer  "pet"
+    t.integer  "oft_m"
+    t.integer  "oft_v"
+    t.integer  "oft_p"
+    t.string   "obs_comment"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "students", force: :cascade do |t|
