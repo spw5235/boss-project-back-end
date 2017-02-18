@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Observation < ApplicationRecord
+  belongs_to :student
   validates :obs_num, presence: true
   validates :obs_on, presence: true
   validates :obs_setting, presence: true
