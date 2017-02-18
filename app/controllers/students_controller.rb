@@ -16,6 +16,8 @@ class StudentsController < ApplicationController
 
   # POST /students
   def create
+    # @student = current_user.Student.new(student_params)
+
     @student = Student.new(student_params)
 
     if @student.save
