@@ -10,10 +10,10 @@ curl "${API}${URL_PATH}" \
   --data '{
     "student": {
       "first_name": "'"${FIRST_NAME}"'",
-      "last_name": "'"${LAST_NAME}"'"
-      "born_on": "'"${BORN_ON}"'"
-      "school": "'"${SCHOOL}"'"
-      "teacher": "'"${TEACHER}"'"
+      "last_name": "'"${LAST_NAME}"'",
+      "born_on": "'"${BORN_ON}"'",
+      "school": "'"${SCHOOL}"'",
+      "teacher": "'"${TEACHER}"'",
       "grade": "'"${GRADE}"'"
     }
   }'

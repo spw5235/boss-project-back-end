@@ -2,7 +2,6 @@
 
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :update, :destroy]
-
   # GET /students
   def index
     @students = Student.all
@@ -41,14 +40,21 @@ class StudentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_student
-      @student = Student.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def student_params
-      params.require(:student).permit(:first_name, :last_name, :born_on,
-                                      :school, :teacher, :grade)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_student
+    @student = Student.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def student_params
+    params.permit(:first_name, :last_name, :born_on,
+                  :school, :teacher, :grade)
+  end
+
+  # Archived student-params before fail under update
+  # def student_params
+  #   params.require(:student).permit(:first_name, :last_name, :born_on,
+  #                                   :school, :teacher, :grade)
+  # end
 end
