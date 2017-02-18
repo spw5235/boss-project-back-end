@@ -43,15 +43,15 @@
                   teacher: 'Gillin',
                   grade: '4')
 
-  Observation.create!(obs_num: 1,
-                      obs_on: '2010-01-02',
-                      obs_setting: 'Classroom',
-                      obs_task: 'reading',
-                      obs_time: 10,
-                      aet: 1,
-                      pet: 1,
-                      oft_m: 1,
-                      oft_v: 1,
-                      oft_p: 1,
-                      obs_comment: name.to_s)
+  # Observation.create!(obs_num: 1,
+  #                     obs_on: '2010-01-02',
+  #                     obs_setting: 'Classroom',
+  #                     obs_task: 'reading',
+  #                     obs_time: 10,
+  #                     aet: 1,
+  #                     pet: 1,
+  #                     oft_m: 1,
+  #                     oft_v: 1,
+  #                     oft_p: 1,
+  #                     obs_comment: name.to_s)
 end
