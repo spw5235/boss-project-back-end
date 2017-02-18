@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ObservationsController < ApplicationController
   before_action :set_observation, only: [:show, :update, :destroy]
 
@@ -39,13 +41,22 @@ class ObservationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_observation
-      @observation = Observation.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def observation_params
-      params.require(:observation).permit(:obs_num, :obs_on, :obs_setting, :obs_task, :obs_time, :aet, :pet, :oft_m, :oft_v, :oft_p, :obs_comment)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_observation
+    @observation = Observation.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def observation_params
+    params.permit(:obs_num, :obs_on, :obs_setting,
+                  :obs_task, :obs_time, :aet, :pet,
+                  :oft_m, :oft_v, :oft_p, :obs_comment)
+  end
+
+  # def observation_params
+  #   params.require(:observation).permit(:obs_num, :obs_on, :obs_setting,
+  #                                       :obs_task, :obs_time, :aet, :pet,
+  #                                       :oft_m, :oft_v, :oft_p, :obs_comment)
+  # end
 end
