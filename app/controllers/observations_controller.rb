@@ -2,12 +2,12 @@
 
 class ObservationsController < ApplicationController
   before_action :set_observation, only: [:show, :update, :destroy]
+  before_action :set_student, only: [:index, :create]
 
   # GET /observations
   def index
-    @observations = Observation.all
-
-    render json: @observations
+    @observations = @students.observations
+    render json: { students: @students }
   end
 
   # GET /observations/1
@@ -18,9 +18,10 @@ class ObservationsController < ApplicationController
   # POST /observations
   def create
     @observation = Observation.new(observation_params)
+    @observation.student = @student
 
     if @observation.save
-      render json: @observation, status: :created, location: @observation
+      render json: @observation, status: :created
     else
       render json: @observation.errors, status: :unprocessable_entity
     end
@@ -29,7 +30,8 @@ class ObservationsController < ApplicationController
   # PATCH/PUT /observations/1
   def update
     if @observation.update(observation_params)
-      render json: @observation
+      # render json: @observation
+      render json: @observation, status: :ok
     else
       render json: @observation.errors, status: :unprocessable_entity
     end
@@ -38,18 +40,27 @@ class ObservationsController < ApplicationController
   # DELETE /observations/1
   def destroy
     @observation.destroy
+    head :no_content
   end
 
-  # private
+  private
+
+  def set_student
+    @student = Student.find(params[:student_id])
+  end
+
+  def set_observation
+    @observation = Observation.find(params[:id])
+  end
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_observation
-    # Below is prior to my last migration
-    # @observation = Observation.find(params[:id])
-
-    # Below is from the example file
-    @observation = current_user.observations.find(params[:id])
-  end
+  # def set_observation
+  #   # Below is prior to my last migration
+  #   @observation = Observation.find(params[:student_id])
+  #
+  #   # Below is from the example file
+  #   # @observation = current_user.observations.find(params[:id])
+  # end
 
   # Only allow a trusted parameter "white list" through.
   # def observation_params
@@ -64,5 +75,5 @@ class ObservationsController < ApplicationController
                                         :oft_m, :oft_v, :oft_p, :obs_comment)
   end
 
-  private :set_observation, :observation_params
+  # private :set_observation, :observation_params
 end

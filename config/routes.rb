@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  resources :observations
+  resources :observations, only: [:index, :show, :destroy, :update, :create]
   resources :students, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   delete '/sign-out/:id' => 'users#signout'
   patch '/change-password/:id' => 'users#changepw'
   resources :users, only: [:index, :show]
+  get '/students/:student_id/observations' => 'observations#index'
+  post '/students/:student_id/observations' => 'observations#create'
 end
