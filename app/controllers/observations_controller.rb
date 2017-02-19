@@ -6,8 +6,8 @@ class ObservationsController < ApplicationController
 
   # GET /observations
   def index
-    @observations = @students.observations
-    render json: { students: @students }
+    @observations = @student.observations
+    render json: { observations: @observations }
   end
 
   # GET /observations/1

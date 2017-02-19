@@ -1,7 +1,7 @@
 #!/bin/bash
 
 API="${API_ORIGIN:-http://localhost:4741}"
-URL_PATH="/students/${ID}"
+URL_PATH="/observations/${OBS_ID}"
 curl "${API}${URL_PATH}" \
   --include \
   --request GET #\

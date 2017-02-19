@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   patch '/change-password/:id' => 'users#changepw'
   resources :users, only: [:index, :show]
   get '/students/:student_id/observations' => 'observations#index'
+  # get '/students/:student_id/observations/:observation_id' => 'observations#show'
   post '/students/:student_id/observations' => 'observations#create'
 end
