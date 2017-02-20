@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Student < ApplicationRecord
-  # belongs_to :user
+  belongs_to :user
   has_many :observations, inverse_of: :student, dependent: :destroy
   validates_presence_of :first_name, :last_name, :born_on,
                         :school, :teacher, :grade
