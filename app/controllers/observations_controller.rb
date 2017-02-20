@@ -29,9 +29,9 @@ class ObservationsController < ApplicationController
 
   # PATCH/PUT /observations/1
   def update
-    if @observation.update(observation_params)
-      # render json: @observation
-      render json: @observation, status: :ok
+    if @observation.update(observation_params_update)
+      render json: @observation
+      # render json: @observation, status: :ok
     else
       render json: @observation.errors, status: :unprocessable_entity
     end
@@ -73,6 +73,12 @@ class ObservationsController < ApplicationController
     params.require(:observation).permit(:obs_num, :obs_on, :obs_setting,
                                         :obs_task, :obs_time, :aet, :pet,
                                         :oft_m, :oft_v, :oft_p, :obs_comment)
+  end
+
+  def observation_params_update
+    params.permit(:obs_num, :obs_on, :obs_setting,
+                  :obs_task, :obs_time, :aet, :pet,
+                  :oft_m, :oft_v, :oft_p, :obs_comment)
   end
 
   # private :set_observation, :observation_params

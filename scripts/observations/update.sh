@@ -14,11 +14,11 @@ curl "${API}${URL_PATH}" \
       "obs_setting": "'"${OBS_SETTING}"'",
       "obs_task": "'"${OBS_TASK}"'",
       "obs_time": "'"${OBS_TIME}"'",
-      "aet": "'"${AET}"'"
-      "pet": "'"${PET}"'"
-      "oft_m": "'"${OFT_M}"'"
-      "oft_v": "'"${OFT_V}"'"
-      "oft_p": "'"${OFT_P}"'"
+      "aet": "'"${AET}"'",
+      "pet": "'"${PET}"'",
+      "oft_m": "'"${OFT_M}"'",
+      "oft_v": "'"${OFT_V}"'",
+      "oft_p": "'"${OFT_P}"'",
       "obs_comment": "'"${OBS_COMMENT}"'"
     }
   }'

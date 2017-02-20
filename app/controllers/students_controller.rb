@@ -22,8 +22,8 @@ class StudentsController < ApplicationController
   # PATCH/PUT /students/1
   def update
     if @student.update(student_params)
-      # render json: @student
-      head :no_content
+      render json: @student
+      # head :no_content
     else
       render json: @student.errors, status: :unprocessable_entity
     end
