@@ -1,18 +1,5 @@
 #!/bin/bash
 
-# curl --include --request PATCH "http://localhost:4741/students/1" \
-#   --header "Content-Type: application/json" \
-#   --data '{
-#     "stu": {
-#       "first_name": "Jeff",
-#       "last_name": "Rebekah",
-#       "born_on": "2016-02-02",
-#       "school": "bronxville",
-#       "teacher": "gillin",
-#       "grade": "4th"
-#     }
-#   }'
-
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/students/${ID}"
 curl "${API}${URL_PATH}" \

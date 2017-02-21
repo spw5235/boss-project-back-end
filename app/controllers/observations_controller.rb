@@ -8,16 +8,21 @@ class ObservationsController < OpenReadController
   def index
     @observations = @student.observations
     render json: { observations: @observations }
+    # @observations = current_user.observations
+    # render json: @observations
   end
 
   # GET /observations/1
   def show
+    @observations = current_user.observations
     render json: @observation
   end
 
   # POST /observations
   def create
-    @observation = Observation.new(observation_params)
+    # @observation = current_user.observations.build(observation_params)
+    # @observation.student = @student
+    @observation = current_user.observations.build(observation_params)
     @observation.student = @student
 
     if @observation.save
@@ -29,7 +34,7 @@ class ObservationsController < OpenReadController
 
   # PATCH/PUT /observations/1
   def update
-    if @observation.update(observation_params_update)
+    if @observation.update(observation_params)
       render json: @observation
       # render json: @observation, status: :ok
     else
@@ -51,6 +56,7 @@ class ObservationsController < OpenReadController
 
   def set_observation
     @observation = Observation.find(params[:id])
+    # @observation = Observation.where(id: params[:id], user: current_user).take
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -73,12 +79,6 @@ class ObservationsController < OpenReadController
     params.require(:observation).permit(:obs_num, :obs_on, :obs_setting,
                                         :obs_task, :obs_time, :aet, :pet,
                                         :oft_m, :oft_v, :oft_p, :obs_comment)
-  end
-
-  def observation_params_update
-    params.permit(:obs_num, :obs_on, :obs_setting,
-                  :obs_task, :obs_time, :aet, :pet,
-                  :oft_m, :oft_v, :oft_p, :obs_comment)
   end
 
   # private :set_observation, :observation_params

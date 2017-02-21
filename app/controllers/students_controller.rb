@@ -32,7 +32,6 @@ class StudentsController < OpenReadController
 
   # POST /students
   def create
-
     @student = current_user.students.build(student_params)
 
     if @student.save
@@ -53,6 +52,6 @@ class StudentsController < OpenReadController
   # Only allow a trusted parameter "white list" through.
   def student_params
     params.require(:student).permit(:first_name, :last_name, :born_on,
-                   :school, :teacher, :grade)
+                                    :school, :teacher, :grade)
   end
 end
