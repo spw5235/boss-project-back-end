@@ -30,10 +30,20 @@ class StudentsController < OpenReadController
   end
 
   # POST /students
-  def create
-    # @student = current_user.Student.new(student_params)
+  # def create
+  #   @student = Student.new(student_params)
+  #
+  #   if @student.save
+  #     render json: @student, status: :created
+  #   else
+  #     render json: @student.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-    @student = Student.new(student_params)
+  # POST /students
+  def create
+
+    @student = current_user.students.build(student_params)
 
     if @student.save
       render json: @student, status: :created
@@ -46,18 +56,13 @@ class StudentsController < OpenReadController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_student
-    @student = Student.find(params[:id])
+    # @student = Student.find(params[:id])
+    @student = Student.where(id: params[:id], user: current_user).take
   end
 
   # Only allow a trusted parameter "white list" through.
   def student_params
-    params.permit(:first_name, :last_name, :born_on,
-                  :school, :teacher, :grade)
+    params.require(:student).permit(:first_name, :last_name, :born_on,
+                   :school, :teacher, :grade)
   end
-
-  # Archived student-params before fail under update
-  # def student_params
-  #   params.require(:student).permit(:first_name, :last_name, :born_on,
-  #                                   :school, :teacher, :grade)
-  # end
 end
