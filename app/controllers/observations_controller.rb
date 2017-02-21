@@ -51,7 +51,7 @@ class ObservationsController < OpenReadController
   private
 
   def set_student
-    @student = Student.find(params[:student_id])
+    @student = current_user.students.find(params[:student_id])
   end
 
   def set_observation
