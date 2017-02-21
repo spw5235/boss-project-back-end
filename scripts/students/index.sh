@@ -4,7 +4,7 @@ API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/students"
 curl "${API}${URL_PATH}" \
   --include \
-  --request GET #\
+  --request GET \
   --header "Authorization: Token token=$TOKEN"
 
 echo

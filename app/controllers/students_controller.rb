@@ -4,12 +4,13 @@ class StudentsController < OpenReadController
   before_action :set_student, only: [:show, :update, :destroy]
   # GET /students
   def index
-    @students = Student.all
+    @students = current_user.students
     render json: @students
   end
 
   # GET /students/1
   def show
+    @students = current_user.students
     render json: @student
   end
 
@@ -28,17 +29,6 @@ class StudentsController < OpenReadController
       render json: @student.errors, status: :unprocessable_entity
     end
   end
-
-  # POST /students
-  # def create
-  #   @student = Student.new(student_params)
-  #
-  #   if @student.save
-  #     render json: @student, status: :created
-  #   else
-  #     render json: @student.errors, status: :unprocessable_entity
-  #   end
-  # end
 
   # POST /students
   def create
