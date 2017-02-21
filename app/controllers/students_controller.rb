@@ -10,7 +10,6 @@ class StudentsController < OpenReadController
 
   # GET /students/1
   def show
-    @students = current_user.students
     render json: @student
   end
 

@@ -14,7 +14,6 @@ class ObservationsController < OpenReadController
 
   # GET /observations/1
   def show
-    @observations = current_user.observations
     render json: @observation
   end
 
@@ -55,8 +54,8 @@ class ObservationsController < OpenReadController
   end
 
   def set_observation
-    @observation = Observation.find(params[:id])
-    # @observation = Observation.where(id: params[:id], user: current_user).take
+    # @observation = Observation.find(params[:id])
+    @observation = Observation.where(id: params[:id], user: current_user).take
   end
 
   # Use callbacks to share common setup or constraints between actions.
