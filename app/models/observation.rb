@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Observation < ApplicationRecord
-  # belongs_to :user
+  belongs_to :user
   belongs_to :student, inverse_of: :observations
   validates_presence_of :obs_num, :obs_on, :obs_setting, :obs_task,
                         :obs_time, :aet, :pet, :oft_m, :oft_v, :oft_p,

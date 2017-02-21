@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class StudentsController < ApplicationController
+class StudentsController < OpenReadController
   before_action :set_student, only: [:show, :update, :destroy]
   # GET /students
   def index

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ObservationsController < ApplicationController
+class ObservationsController < OpenReadController
   before_action :set_observation, only: [:show, :update, :destroy]
   before_action :set_student, only: [:index, :create]
 
