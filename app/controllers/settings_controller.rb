@@ -6,7 +6,7 @@ class SettingsController < OpenReadController
 
   # GET /settings
   def index
-    @settings = @student.observations
+    @settings = @student.settings
     render json: { settings: @settings }
   end
 
@@ -17,7 +17,6 @@ class SettingsController < OpenReadController
 
   # POST /settings
   def create
-
     @setting = current_user.settings.build(setting_params)
     @setting.student = @student
 
