@@ -8,11 +8,6 @@
     --header "Authorization: Token token=${TOKEN}" \
     --data '{
       "observation": {
-        "obs_num": "'"${OBS_NUM}"'",
-        "obs_on": "'"${OBS_ON}"'",
-        "obs_setting": "'"${OBS_SETTING}"'",
-        "obs_task": "'"${OBS_TASK}"'",
-        "obs_time": "'"${OBS_TIME}"'",
         "aet": "'"${AET}"'",
         "pet": "'"${PET}"'",
         "oft_m": "'"${OFT_M}"'",
