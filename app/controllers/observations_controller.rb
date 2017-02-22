@@ -7,7 +7,8 @@ class ObservationsController < OpenReadController
 
   # GET /observations
   def index
-    @observations = @student.observations
+    @observations = @setting.observations
+    # @observations = @student.observations
     render json: { observations: @observations }
     # @observations = current_user.observations
     # render json: @observations
