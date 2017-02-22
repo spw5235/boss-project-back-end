@@ -3,6 +3,7 @@
 class ObservationsController < OpenReadController
   before_action :set_observation, only: [:show, :update, :destroy]
   before_action :set_student, only: [:index, :create]
+  before_action :set_setting, only: [:index, :create]
 
   # GET /observations
   def index
@@ -19,9 +20,8 @@ class ObservationsController < OpenReadController
 
   # POST /observations
   def create
-    # @observation = current_user.observations.build(observation_params)
-    # @observation.student = @student
     @observation = current_user.observations.build(observation_params)
+    @observation.setting = @setting
     @observation.student = @student
 
     if @observation.save
@@ -51,6 +51,10 @@ class ObservationsController < OpenReadController
 
   def set_student
     @student = current_user.students.find(params[:student_id])
+  end
+
+  def set_setting
+    @setting = current_user.settings.find(params[:setting_id])
   end
 
   def set_observation
