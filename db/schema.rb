@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221234603) do
+ActiveRecord::Schema.define(version: 20170222135903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,6 @@ ActiveRecord::Schema.define(version: 20170221234603) do
   end
 
   create_table "observations", force: :cascade do |t|
-    t.integer  "obs_num"
-    t.date     "obs_on"
-    t.string   "obs_setting"
-    t.string   "obs_task"
-    t.integer  "obs_time"
     t.integer  "aet"
     t.integer  "pet"
     t.integer  "oft_m"
