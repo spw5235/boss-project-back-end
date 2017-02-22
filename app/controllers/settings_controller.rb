@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SettingsController < ApplicationController
+class SettingsController < OpenReadController
   before_action :set_setting, only: [:show, :update, :destroy]
   before_action :set_student, only: [:index, :create]
 
@@ -17,7 +17,8 @@ class SettingsController < ApplicationController
 
   # POST /settings
   def create
-    @setting = current_user.settings.build(settings_params)
+
+    @setting = current_user.settings.build(setting_params)
     @setting.student = @student
 
     if @setting.save
