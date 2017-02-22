@@ -4,6 +4,7 @@ class Observation < ApplicationRecord
   belongs_to :user
   # belongs_to :student, inverse_of: :observations
   belongs_to :student
+  belongs_to :setting
   validates_presence_of :obs_num, :obs_on, :obs_setting, :obs_task,
                         :obs_time, :aet, :pet, :oft_m, :oft_v, :oft_p,
                         :obs_comment

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
+  resources :settings
   resources :observations, only: [:index, :show, :destroy, :update, :create]
   resources :students, except: [:new, :edit]
   resources :examples, except: [:new, :edit]

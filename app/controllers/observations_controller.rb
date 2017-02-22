@@ -58,22 +58,6 @@ class ObservationsController < OpenReadController
     @observation = Observation.where(id: params[:id], user: current_user).take
   end
 
-  # Use callbacks to share common setup or constraints between actions.
-  # def set_observation
-  #   # Below is prior to my last migration
-  #   @observation = Observation.find(params[:student_id])
-  #
-  #   # Below is from the example file
-  #   # @observation = current_user.observations.find(params[:id])
-  # end
-
-  # Only allow a trusted parameter "white list" through.
-  # def observation_params
-  #   params.permit(:obs_num, :obs_on, :obs_setting,
-  #                 :obs_task, :obs_time, :aet, :pet,
-  #                 :oft_m, :oft_v, :oft_p, :obs_comment)
-  # end
-
   def observation_params
     params.require(:observation).permit(:obs_num, :obs_on, :obs_setting,
                                         :obs_task, :obs_time, :aet, :pet,
