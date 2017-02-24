@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222135903) do
+ActiveRecord::Schema.define(version: 20170224211330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170222135903) do
     t.integer  "student_id"
     t.integer  "user_id"
     t.integer  "setting_id"
+    t.integer  "obs_num"
     t.index ["setting_id"], name: "index_observations_on_setting_id", using: :btree
     t.index ["student_id"], name: "index_observations_on_student_id", using: :btree
     t.index ["user_id"], name: "index_observations_on_user_id", using: :btree

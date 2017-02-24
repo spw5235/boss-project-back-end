@@ -171,7 +171,7 @@ The response body will contain JSON containing an array of games, e.g.:
       "born_on": "2000-01-01",
       "school": "School Name",
       "teacher": "Teacher Name",
-      "grade": "4th"
+      "gradgit e": "4th"
     },
     {
       "id": 2,

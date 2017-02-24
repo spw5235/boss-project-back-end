@@ -5,7 +5,7 @@ class Observation < ApplicationRecord
   # belongs_to :student, inverse_of: :observations
   belongs_to :student
   belongs_to :setting
-  validates_presence_of :aet, :pet, :oft_m, :oft_v, :oft_p
+  validates_presence_of :aet, :pet, :oft_m, :oft_v, :oft_p, :obs_num
 
   # belongs_to :student
   # validates :obs_num, presence: true

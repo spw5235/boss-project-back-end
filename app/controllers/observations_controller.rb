@@ -65,7 +65,7 @@ class ObservationsController < OpenReadController
 
   def observation_params
     params.require(:observation).permit(:aet, :pet, :oft_m, :oft_v,
-                                        :oft_p, :obs_comment)
+                                        :oft_p, :obs_comment, :obs_num)
   end
 
   # private :set_observation, :observation_params

@@ -13,7 +13,8 @@
         "oft_m": "'"${OFT_M}"'",
         "oft_v": "'"${OFT_V}"'",
         "oft_p": "'"${OFT_P}"'",
-        "obs_comment": "'"${OBS_COMMENT}"'"
+        "obs_comment": "'"${OBS_COMMENT}"'",
+        "obs_num": "'"${OBS_NUM}"'"
       }
     }'
 
