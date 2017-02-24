@@ -24,7 +24,6 @@ class ObservationsController < OpenReadController
     @observation = current_user.observations.build(observation_params)
     @observation.setting = @setting
     @observation.student = @student
-
     if @observation.save
       render json: @observation, status: :created
     else
