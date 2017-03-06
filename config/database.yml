@@ -1,4 +1,4 @@
-<% project_name = 'boss-api' %>
+<% project_name = 'student-tracker' %>
 
 default: &default
   adapter: postgresql

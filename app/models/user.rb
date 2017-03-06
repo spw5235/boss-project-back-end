@@ -2,7 +2,5 @@
 class User < ApplicationRecord
   include Authentication
   has_many :examples
-  has_many :students
-  has_many :settings
-  has_many :observations
+  has_many :trackers
 end
